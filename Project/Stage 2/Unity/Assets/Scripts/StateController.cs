@@ -10,11 +10,10 @@ public class StateController : MonoBehaviour
     {
         stateMachine = GetComponent<StateMachine>();
 
-        CutSceneState cutscene = new CutSceneState();
-        WalkingState walking = new WalkingState();
-        MiningState mining = new MiningState();
+        OnState on = new OnState();
+        OffState off = new OffState();
 
-        stateMachine.SetState(cutscene);
+        stateMachine.SetState(off);
     }
 }
 

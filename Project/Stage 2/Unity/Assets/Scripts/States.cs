@@ -9,7 +9,7 @@ public abstract class State
     public abstract void Exit();
 }
 
-public class CutSceneState : State
+public class OnState : State
 {
     public override void Enter()
     {
@@ -27,7 +27,7 @@ public class CutSceneState : State
     }
 }
 
-public class WalkingState : State
+public class OffState : State
 {
     public override void Enter()
     {
@@ -45,21 +45,4 @@ public class WalkingState : State
     }
 }
 
-public class MiningState : State
-{
-    public override void Enter()
-    {
-        
-    }
-
-    public override void Update()
-    {
-        
-    }
-
-    public override void Exit()
-    {
-        
-    }
-}
 
