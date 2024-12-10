@@ -13,10 +13,17 @@ public class CubicInterpolation : MonoBehaviour
     [SerializeField] private int index;
 
     public bool IsPlayerRiding;
-    // Start is called before the first frame update
-    void Start()
+    
+    private StateMachine stateMachine;
+
+    private void Start()
     {
-        
+        stateMachine = GetComponent<StateMachine>();
+
+        OnState on = new OnState();
+        OffState off = new OffState();
+
+        stateMachine.SetState(off);
     }
 
     // Update is called once per frame
