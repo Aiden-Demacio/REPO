@@ -11,7 +11,8 @@ public class CubicInterpolation : MonoBehaviour
     [SerializeField] private float t;
     [SerializeField] private float speed = 1;
     [SerializeField] private int index;
-    
+
+    public bool IsPlayerRiding;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,8 @@ public class CubicInterpolation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        t += Time.deltaTime * speed;
+        if (IsPlayerRiding)
+            t += Time.deltaTime * speed;
         if (t > 1)
         {
             t = 0;
@@ -34,6 +36,7 @@ public class CubicInterpolation : MonoBehaviour
         }
         
         transform.position = CatmullRomPosition(index, t);
+        transform.LookAt(CatmullRomPosition(index, t + 0.01f));
     }
     
     private Vector3 CatmullRomPosition(int i, float t)
