@@ -155,6 +155,12 @@ Transform:
   - {fileID: 1915822993}
   m_Father: {fileID: 844559220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &504645031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 65702495048144492, guid: c3c59f0b4502d2245ac6ce10d5144b5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1499450667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &844559216
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +609,10 @@ PlayableDirector:
     value: {fileID: 1499450669}
   - key: {fileID: 3612196952404823770, guid: fe3ba1ee28fda1f4caddc09092776698, type: 2}
     value: {fileID: 1499450669}
+  - key: {fileID: 2820886839943470796, guid: fe3ba1ee28fda1f4caddc09092776698, type: 2}
+    value: {fileID: 504645031}
+  - key: {fileID: 2905156835946940092, guid: fe3ba1ee28fda1f4caddc09092776698, type: 2}
+    value: {fileID: 844559216}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1915822990
