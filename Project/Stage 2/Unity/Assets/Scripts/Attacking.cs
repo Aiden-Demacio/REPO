@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Attacking : MonoBehaviour
 {
@@ -8,11 +9,18 @@ public class Attacking : MonoBehaviour
 	[SerializeField] GameObject m_CoalPrefab;
 	[SerializeField] Transform m_RaycastPoint;
 
+	[SerializeField] Animator m_Animator;
+
+	void Awake()
+	{
+		Assert.IsNotNull(m_Animator);
+	}
+
 	void Update()
 	{
 		if (Input.GetButtonDown("Fire1"))
 		{
-			Debug.Log("Attack");
+			m_Animator.SetTrigger("Attack");
 
 			Ray ray = new()
 			{

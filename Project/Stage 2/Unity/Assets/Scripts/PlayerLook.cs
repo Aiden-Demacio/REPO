@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerLook : MonoBehaviour
 {
 	[SerializeField] Transform m_CameraPivot;
+	[SerializeField] Transform m_Model;
 	[SerializeField] float m_Sensitivity = 2;
 
 	float m_Pitch = 50;
@@ -18,6 +19,7 @@ public class PlayerLook : MonoBehaviour
 		m_Pitch = Mathf.Clamp(m_Pitch, -20, 89);
 
 		m_CameraPivot.localEulerAngles = new Vector3(m_Pitch, m_Yaw, 0);
+		m_Model.localEulerAngles = new Vector3(0, m_Yaw, 0);
 	}
 
 	public Vector3 RotateYaw(Vector3 input)
