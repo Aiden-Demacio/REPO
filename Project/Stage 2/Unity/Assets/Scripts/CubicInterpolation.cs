@@ -13,18 +13,6 @@ public class CubicInterpolation : MonoBehaviour
     [SerializeField] private int index;
 
     public bool IsPlayerRiding;
-    
-    private StateMachine stateMachine;
-
-    private void Start()
-    {
-        stateMachine = GetComponent<StateMachine>();
-
-        OnState on = new OnState();
-        OffState off = new OffState();
-
-        stateMachine.SetState(off);
-    }
 
     // Update is called once per frame
     void Update()
@@ -41,9 +29,14 @@ public class CubicInterpolation : MonoBehaviour
             t = 1;
             index--;
         }
+
+        if (IsPlayerRiding)
+        {
+            transform.position = CatmullRomPosition(index, t);
+            transform.LookAt(CatmullRomPosition(index, t + 0.01f));
+            transform.rotation *= Quaternion.Euler(-90, 0, 0);
+        }
         
-        transform.position = CatmullRomPosition(index, t);
-        transform.LookAt(CatmullRomPosition(index, t + 0.01f));
     }
     
     private Vector3 CatmullRomPosition(int i, float t)
