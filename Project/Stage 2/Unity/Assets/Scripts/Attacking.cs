@@ -4,6 +4,7 @@ using DitzelGames.FastIK;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.TextCore;
+using Vector3 = UnityEngine.Vector3;
 
 public class Attacking : MonoBehaviour
 {
@@ -61,16 +62,17 @@ public class Attacking : MonoBehaviour
 			}
 
 			print("Attach to minecart");
-			CubicInterpolation minecart = hit.transform.parent.GetComponent<CubicInterpolation>();
+			CubicInterpolation minecart = hit.transform.GetComponent<CubicInterpolation>();
 			minecart.IsPlayerRiding = true;
 			gameObject.GetComponent<PlayerController>().enabled = false;
 			gameObject.GetComponent<CharacterController>().enabled = false;
 			gameObject.GetComponent<PlayerLook>().enabled = false;
 			
 			transform.SetParent(minecart.transform);
-			transform.localPosition = new Vector3(0, 0.5f, -1.5f);
-			//transform.localRotation = Quaternion.AngleAxis(180, Vector3.up);
-			transform.GetChild(0).localRotation = Quaternion.AngleAxis(-90, Vector3.up);
+			transform.localPosition = new Vector3(-0.0004f, 0.02392f, 0.00024f);
+			//transform.localRotation = Quaternion.Euler();
+			transform.localRotation = Quaternion.identity;
+			transform.GetChild(0).localRotation = Quaternion.Euler(90, 0, 0);
 
 			h1.enabled = true;
 			h2.enabled = true;
