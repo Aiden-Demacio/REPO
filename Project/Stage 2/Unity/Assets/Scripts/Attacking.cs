@@ -58,9 +58,11 @@ public class Attacking : MonoBehaviour
 			minecart.IsPlayerRiding = true;
 			gameObject.GetComponent<PlayerController>().enabled = false;
 			gameObject.GetComponent<CharacterController>().enabled = false;
+			gameObject.GetComponent<PlayerLook>().enabled = false;
 			
 			transform.SetParent(minecart.transform);
-			transform.localPosition = new Vector3(0, 0.5f, 0);
+			transform.localPosition = new Vector3(0, 0.5f, -1.5f);
+			transform.localRotation = Quaternion.Euler(0, -160, 0);
 		}
 	}
 
