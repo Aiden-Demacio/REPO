@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using DitzelGames.FastIK;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.TextCore;
 
 public class Attacking : MonoBehaviour
 {
@@ -12,6 +14,11 @@ public class Attacking : MonoBehaviour
 
 	[SerializeField] Animator m_Animator;
 
+	[SerializeField] private FastIKFabric h1;
+	[SerializeField] private FastIKFabric h2;
+	[SerializeField] private Transform g1;
+	[SerializeField] private Transform g2;
+	
 	void Awake()
 	{
 		Assert.IsNotNull(m_Animator);
@@ -62,7 +69,14 @@ public class Attacking : MonoBehaviour
 			
 			transform.SetParent(minecart.transform);
 			transform.localPosition = new Vector3(0, 0.5f, -1.5f);
-			transform.localRotation = Quaternion.Euler(0, -160, 0);
+			//transform.localRotation = Quaternion.AngleAxis(180, Vector3.up);
+			transform.GetChild(0).localRotation = Quaternion.AngleAxis(-90, Vector3.up);
+
+			h1.enabled = true;
+			h2.enabled = true;
+
+			h1.Target = g1;
+			h2.Target = g2;
 		}
 	}
 
